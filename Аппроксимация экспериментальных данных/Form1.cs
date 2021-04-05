@@ -65,34 +65,19 @@ namespace Аппроксимация_экспериментальных_данн
             else SetChart -= SetLineApproximation;
         }
 
-        private void SetChartButton_Click(object sender, EventArgs e)
-        {
-            foreach(var series in chart1.Series)
-            {
-                series.Points.Clear();
-            }
-            SetPoints();
-            SetChart?.Invoke();
- 
-            foreach (var area in chart1.ChartAreas)
-            {
-                area.AxisX.Minimum = Points[0].x - 1;
-                area.AxisX.Maximum = Points[Points.Count - 1].x + 1;
-                area.AxisY.Minimum = Points[0].y - 1;
-                area.AxisY.Maximum = Points[Points.Count - 1].y + 1;
-            }
-        }
         public void SetPowApproximation()
         {
             Pow pow = new Pow(Points);
             PowALabel.Text = pow.a.ToString();
             PowBLable.Text = pow.b.ToString();
-            chart1.Series[1].BorderWidth = 3;
-            MessageBox.Show("Pow");
+            chart1.Series[1].BorderWidth = 2;
             for (int i = 0; i < Points.Count; i++)
             {
-                chart1.Series[1].Points.AddXY(Points[i].x, pow.GetPx(Points[i].x));
+                pow.ApproximationPoints.Add(new CoordinatePoint(Points[i].x, pow.GetPx(Points[i].x)));
+                var currentPoint = pow.ApproximationPoints[i];
+                chart1.Series[1].Points.AddXY(currentPoint.x, currentPoint.y);
             }
+            powDeviation.Text = pow.GetDeviation().ToString();
         }
         public void SetLineApproximation()
         {
@@ -100,11 +85,14 @@ namespace Аппроксимация_экспериментальных_данн
             Line pow = new Line(Points);
             LineALabel.Text = pow.a.ToString();
             LineBLabel.Text = pow.b.ToString();
-            chart1.Series[2].BorderWidth = 3;
+            chart1.Series[2].BorderWidth = 2;
             for (int i = 0; i < Points.Count; i++)
             {
-                chart1.Series[2].Points.AddXY(Points[i].x, pow.GetPx(Points[i].x));
+                var currentPoint = new CoordinatePoint(Points[i].x, pow.GetPx(Points[i].x));
+                pow.ApproximationPoints.Add(currentPoint);
+                chart1.Series[2].Points.AddXY(currentPoint.x, currentPoint.y);
             }
+           lineDeviation.Text = pow.GetDeviation().ToString();
         }
         public void SetExpApproximation()
         {
@@ -112,24 +100,30 @@ namespace Аппроксимация_экспериментальных_данн
             Exp pow = new Exp(Points);
             ExpALabel.Text = pow.a.ToString();
             ExpBLabel.Text = pow.b.ToString();
-            chart1.Series[3].BorderWidth = 3;
+            chart1.Series[3].BorderWidth = 2;
             for (int i = 0; i < Points.Count; i++)
             {
-                chart1.Series[3].Points.AddXY(Points[i].x, pow.GetPx(Points[i].x));
+                pow.ApproximationPoints.Add(new CoordinatePoint(Points[i].x, pow.GetPx(Points[i].x)));
+                var currentPoint = pow.ApproximationPoints[i];
+                chart1.Series[3].Points.AddXY(currentPoint.x, currentPoint.y);
             }
+            expDeviation.Text = pow.GetDeviation().ToString();
         }
         public void SetPolyApproximation()
         {
             Poly2 pow = new Poly2(Points);
             MessageBox.Show("Was createdd Poly");
-            PolyALabel.Text = pow.a[0].ToString();
+            PolyALabel.Text = pow.a[2].ToString();
             PolyBLabel.Text = pow.a[1].ToString();
-            PolyCLabel.Text = pow.a[2].ToString();
-            chart1.Series[4].BorderWidth = 3;
+            PolyCLabel.Text = pow.a[0].ToString();
+            chart1.Series[4].BorderWidth = 2;
             for (int i = 0; i < Points.Count; i++)
             {
-                chart1.Series[4].Points.AddXY(Points[i].x, pow.GetPx(Points[i].x));
+                pow.ApproximationPoints.Add(new CoordinatePoint(Points[i].x, pow.GetPx(Points[i].x)));
+                var currentPoint = pow.ApproximationPoints[i];
+                chart1.Series[4].Points.AddXY(currentPoint.x, currentPoint.y);
             }
+            polyDeviation.Text = pow.GetDeviation().ToString();
         }
         public void SetPoints()
         {
@@ -146,10 +140,28 @@ namespace Аппроксимация_экспериментальных_данн
         public void SetChartPoints()
         {
             chart1.Series[0].BorderWidth = 5;
-            chart1.Series[0].BorderWidth = 5;
             foreach (var point in Points)
             {
                 chart1.Series[0].Points.AddXY(point.x, point.y);
+            }
+        }
+
+        private void SetChartButton_Click_1(object sender, EventArgs e)
+        {
+            foreach (var series in chart1.Series)
+            {
+                series.Points.Clear();
+            }
+            SetPoints();
+
+            SetChart?.Invoke();
+
+            foreach (var area in chart1.ChartAreas)
+            {
+                area.AxisX.Minimum = Points[0].x - 1;
+                area.AxisX.Maximum = Points[Points.Count - 1].x + 1;
+                area.AxisY.Minimum = Points[0].y - 1;
+                area.AxisY.Maximum = Points[Points.Count - 1].y + 1;
             }
         }
     }

@@ -39,30 +39,40 @@
             this.panel8 = new System.Windows.Forms.Panel();
             this.SetChartButton = new System.Windows.Forms.Button();
             this.PolinomPanel = new System.Windows.Forms.Panel();
+            this.polyDeviation = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.PoliCheck = new System.Windows.Forms.CheckBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
+            this.PolyBLabel = new System.Windows.Forms.Label();
             this.PolyCLabel = new System.Windows.Forms.Label();
             this.PolyALabel = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
             this.ExpPanel = new System.Windows.Forms.Panel();
+            this.expDeviation = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.ExpCheck = new System.Windows.Forms.CheckBox();
+            this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.ExpBLabel = new System.Windows.Forms.Label();
             this.ExpALabel = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.PowPanel = new System.Windows.Forms.Panel();
+            this.powDeviation = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.PowCheck = new System.Windows.Forms.CheckBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.PowBLable = new System.Windows.Forms.Label();
             this.PowALabel = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.LinePanel = new System.Windows.Forms.Panel();
+            this.lineDeviation = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.LineCheck = new System.Windows.Forms.CheckBox();
@@ -76,8 +86,6 @@
             this.yValues = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel3 = new System.Windows.Forms.Panel();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.PolyBLabel = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel8.SuspendLayout();
             this.PolinomPanel.SuspendLayout();
@@ -102,19 +110,19 @@
             this.panel1.Controls.Add(this.PowPanel);
             this.panel1.Controls.Add(this.LinePanel);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 383);
+            this.panel1.Location = new System.Drawing.Point(0, 358);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(954, 149);
+            this.panel1.Size = new System.Drawing.Size(954, 192);
             this.panel1.TabIndex = 0;
             // 
             // panel8
             // 
             this.panel8.Controls.Add(this.SetChartButton);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel8.Location = new System.Drawing.Point(740, 0);
+            this.panel8.Location = new System.Drawing.Point(778, 0);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(214, 149);
-            this.panel8.TabIndex = 4;
+            this.panel8.Size = new System.Drawing.Size(176, 192);
+            this.panel8.TabIndex = 5;
             // 
             // SetChartButton
             // 
@@ -124,12 +132,14 @@
             this.SetChartButton.TabIndex = 0;
             this.SetChartButton.Text = "Сформировать \r\nграфик";
             this.SetChartButton.UseVisualStyleBackColor = true;
-            this.SetChartButton.Click += new System.EventHandler(this.SetChartButton_Click);
+            this.SetChartButton.Click += new System.EventHandler(this.SetChartButton_Click_1);
             // 
             // PolinomPanel
             // 
-            this.PolinomPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.PolinomPanel.BackColor = System.Drawing.Color.Silver;
+            this.PolinomPanel.Controls.Add(this.polyDeviation);
             this.PolinomPanel.Controls.Add(this.panel7);
+            this.PolinomPanel.Controls.Add(this.label16);
             this.PolinomPanel.Controls.Add(this.label7);
             this.PolinomPanel.Controls.Add(this.label24);
             this.PolinomPanel.Controls.Add(this.PolyBLabel);
@@ -139,8 +149,17 @@
             this.PolinomPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.PolinomPanel.Location = new System.Drawing.Point(559, 0);
             this.PolinomPanel.Name = "PolinomPanel";
-            this.PolinomPanel.Size = new System.Drawing.Size(181, 149);
+            this.PolinomPanel.Size = new System.Drawing.Size(219, 192);
             this.PolinomPanel.TabIndex = 3;
+            // 
+            // polyDeviation
+            // 
+            this.polyDeviation.AutoSize = true;
+            this.polyDeviation.Location = new System.Drawing.Point(108, 170);
+            this.polyDeviation.Name = "polyDeviation";
+            this.polyDeviation.Size = new System.Drawing.Size(19, 13);
+            this.polyDeviation.TabIndex = 21;
+            this.polyDeviation.Text = "__";
             // 
             // panel7
             // 
@@ -150,7 +169,7 @@
             this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel7.Location = new System.Drawing.Point(0, 0);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(181, 42);
+            this.panel7.Size = new System.Drawing.Size(219, 42);
             this.panel7.TabIndex = 25;
             // 
             // label4
@@ -172,21 +191,50 @@
             this.PoliCheck.UseVisualStyleBackColor = true;
             this.PoliCheck.CheckedChanged += new System.EventHandler(this.PoliCheck_CheckedChanged);
             // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(3, 157);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(102, 26);
+            this.label16.TabIndex = 20;
+            this.label16.Text = "Суммы квадратов \r\nотклонения";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(10, 84);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(14, 13);
+            this.label7.TabIndex = 20;
+            this.label7.Text = "B";
+            // 
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(9, 111);
+            this.label24.Location = new System.Drawing.Point(9, 109);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(14, 13);
             this.label24.TabIndex = 20;
             this.label24.Text = "C";
+            // 
+            // PolyBLabel
+            // 
+            this.PolyBLabel.AutoSize = true;
+            this.PolyBLabel.BackColor = System.Drawing.Color.White;
+            this.PolyBLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.PolyBLabel.Location = new System.Drawing.Point(89, 82);
+            this.PolyBLabel.Name = "PolyBLabel";
+            this.PolyBLabel.Size = new System.Drawing.Size(16, 15);
+            this.PolyBLabel.TabIndex = 22;
+            this.PolyBLabel.Text = "B";
             // 
             // PolyCLabel
             // 
             this.PolyCLabel.AutoSize = true;
             this.PolyCLabel.BackColor = System.Drawing.Color.White;
             this.PolyCLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.PolyCLabel.Location = new System.Drawing.Point(88, 109);
+            this.PolyCLabel.Location = new System.Drawing.Point(88, 107);
             this.PolyCLabel.Name = "PolyCLabel";
             this.PolyCLabel.Size = new System.Drawing.Size(16, 15);
             this.PolyCLabel.TabIndex = 22;
@@ -197,7 +245,7 @@
             this.PolyALabel.AutoSize = true;
             this.PolyALabel.BackColor = System.Drawing.Color.White;
             this.PolyALabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.PolyALabel.Location = new System.Drawing.Point(88, 56);
+            this.PolyALabel.Location = new System.Drawing.Point(88, 54);
             this.PolyALabel.Name = "PolyALabel";
             this.PolyALabel.Size = new System.Drawing.Size(16, 15);
             this.PolyALabel.TabIndex = 24;
@@ -206,7 +254,7 @@
             // label27
             // 
             this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(9, 56);
+            this.label27.Location = new System.Drawing.Point(9, 54);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(14, 13);
             this.label27.TabIndex = 23;
@@ -214,8 +262,10 @@
             // 
             // ExpPanel
             // 
-            this.ExpPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.ExpPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.ExpPanel.Controls.Add(this.expDeviation);
             this.ExpPanel.Controls.Add(this.panel6);
+            this.ExpPanel.Controls.Add(this.label13);
             this.ExpPanel.Controls.Add(this.label12);
             this.ExpPanel.Controls.Add(this.ExpBLabel);
             this.ExpPanel.Controls.Add(this.ExpALabel);
@@ -223,8 +273,17 @@
             this.ExpPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.ExpPanel.Location = new System.Drawing.Point(357, 0);
             this.ExpPanel.Name = "ExpPanel";
-            this.ExpPanel.Size = new System.Drawing.Size(202, 149);
+            this.ExpPanel.Size = new System.Drawing.Size(202, 192);
             this.ExpPanel.TabIndex = 2;
+            // 
+            // expDeviation
+            // 
+            this.expDeviation.AutoSize = true;
+            this.expDeviation.Location = new System.Drawing.Point(124, 170);
+            this.expDeviation.Name = "expDeviation";
+            this.expDeviation.Size = new System.Drawing.Size(19, 13);
+            this.expDeviation.TabIndex = 15;
+            this.expDeviation.Text = "__";
             // 
             // panel6
             // 
@@ -255,6 +314,15 @@
             this.ExpCheck.TabIndex = 1;
             this.ExpCheck.UseVisualStyleBackColor = true;
             this.ExpCheck.CheckedChanged += new System.EventHandler(this.ExpCheck_CheckedChanged);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(6, 157);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(102, 26);
+            this.label13.TabIndex = 14;
+            this.label13.Text = "Суммы квадратов \r\nотклонения";
             // 
             // label12
             // 
@@ -298,8 +366,10 @@
             // 
             // PowPanel
             // 
-            this.PowPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.PowPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.PowPanel.Controls.Add(this.powDeviation);
             this.PowPanel.Controls.Add(this.panel5);
+            this.PowPanel.Controls.Add(this.label10);
             this.PowPanel.Controls.Add(this.label6);
             this.PowPanel.Controls.Add(this.PowBLable);
             this.PowPanel.Controls.Add(this.PowALabel);
@@ -307,8 +377,17 @@
             this.PowPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.PowPanel.Location = new System.Drawing.Point(173, 0);
             this.PowPanel.Name = "PowPanel";
-            this.PowPanel.Size = new System.Drawing.Size(184, 149);
+            this.PowPanel.Size = new System.Drawing.Size(184, 192);
             this.PowPanel.TabIndex = 1;
+            // 
+            // powDeviation
+            // 
+            this.powDeviation.AutoSize = true;
+            this.powDeviation.Location = new System.Drawing.Point(113, 156);
+            this.powDeviation.Name = "powDeviation";
+            this.powDeviation.Size = new System.Drawing.Size(112, 13);
+            this.powDeviation.TabIndex = 11;
+            this.powDeviation.Text = "182,00468689421354";
             // 
             // panel5
             // 
@@ -339,6 +418,15 @@
             this.PowCheck.TabIndex = 1;
             this.PowCheck.UseVisualStyleBackColor = true;
             this.PowCheck.CheckedChanged += new System.EventHandler(this.PowCheck_CheckedChanged);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(6, 157);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(99, 26);
+            this.label10.TabIndex = 10;
+            this.label10.Text = "Суммы квадратов\r\nотклонения";
             // 
             // label6
             // 
@@ -382,7 +470,9 @@
             // 
             // LinePanel
             // 
-            this.LinePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.LinePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.LinePanel.Controls.Add(this.lineDeviation);
+            this.LinePanel.Controls.Add(this.label5);
             this.LinePanel.Controls.Add(this.panel4);
             this.LinePanel.Controls.Add(this.label17);
             this.LinePanel.Controls.Add(this.LineBLabel);
@@ -391,8 +481,26 @@
             this.LinePanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.LinePanel.Location = new System.Drawing.Point(0, 0);
             this.LinePanel.Name = "LinePanel";
-            this.LinePanel.Size = new System.Drawing.Size(173, 149);
+            this.LinePanel.Size = new System.Drawing.Size(173, 192);
             this.LinePanel.TabIndex = 0;
+            // 
+            // lineDeviation
+            // 
+            this.lineDeviation.AutoSize = true;
+            this.lineDeviation.Location = new System.Drawing.Point(112, 157);
+            this.lineDeviation.Name = "lineDeviation";
+            this.lineDeviation.Size = new System.Drawing.Size(19, 13);
+            this.lineDeviation.TabIndex = 9;
+            this.lineDeviation.Text = "__";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(10, 156);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(99, 26);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "Суммы квадратов\r\nотклонения";
             // 
             // panel4
             // 
@@ -471,7 +579,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(247, 383);
+            this.panel2.Size = new System.Drawing.Size(247, 358);
             this.panel2.TabIndex = 1;
             // 
             // PointsTable
@@ -483,7 +591,7 @@
             this.PointsTable.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PointsTable.Location = new System.Drawing.Point(0, 0);
             this.PointsTable.Name = "PointsTable";
-            this.PointsTable.Size = new System.Drawing.Size(247, 383);
+            this.PointsTable.Size = new System.Drawing.Size(247, 358);
             this.PointsTable.TabIndex = 0;
             // 
             // xValues
@@ -502,7 +610,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(247, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(707, 383);
+            this.panel3.Size = new System.Drawing.Size(707, 358);
             this.panel3.TabIndex = 2;
             // 
             // chart1
@@ -517,29 +625,34 @@
             series11.ChartArea = "ChartArea1";
             series11.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
             series11.Legend = "Исходные данные";
+            series11.LegendText = "Исходные данные";
             series11.MarkerColor = System.Drawing.Color.Blue;
             series11.Name = "DefaultPoints";
             series12.ChartArea = "ChartArea1";
             series12.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
             series12.Legend = "Исходные данные";
+            series12.LegendText = "Линейная";
             series12.MarkerColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             series12.MarkerSize = 12;
             series12.Name = "LineApproximation";
             series13.ChartArea = "ChartArea1";
             series13.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
             series13.Legend = "Исходные данные";
+            series13.LegendText = "Степенная";
             series13.MarkerColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             series13.MarkerSize = 12;
             series13.Name = "PowApproximations";
             series14.ChartArea = "ChartArea1";
             series14.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
             series14.Legend = "Исходные данные";
+            series14.LegendText = "Экспоненциальная";
             series14.MarkerColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             series14.MarkerSize = 12;
             series14.Name = "ExpApproximation";
             series15.ChartArea = "ChartArea1";
             series15.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
             series15.Legend = "Исходные данные";
+            series15.LegendText = "Полиномиальная";
             series15.MarkerColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             series15.MarkerSize = 12;
             series15.Name = "PoliApproximation";
@@ -548,35 +661,15 @@
             this.chart1.Series.Add(series13);
             this.chart1.Series.Add(series14);
             this.chart1.Series.Add(series15);
-            this.chart1.Size = new System.Drawing.Size(707, 383);
+            this.chart1.Size = new System.Drawing.Size(707, 358);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
-            // 
-            // PolyBLabel
-            // 
-            this.PolyBLabel.AutoSize = true;
-            this.PolyBLabel.BackColor = System.Drawing.Color.White;
-            this.PolyBLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.PolyBLabel.Location = new System.Drawing.Point(89, 84);
-            this.PolyBLabel.Name = "PolyBLabel";
-            this.PolyBLabel.Size = new System.Drawing.Size(16, 15);
-            this.PolyBLabel.TabIndex = 22;
-            this.PolyBLabel.Text = "B";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(10, 86);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(14, 13);
-            this.label7.TabIndex = 20;
-            this.label7.Text = "B";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(954, 532);
+            this.ClientSize = new System.Drawing.Size(954, 550);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -611,7 +704,6 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Panel PolinomPanel;
         private System.Windows.Forms.CheckBox PoliCheck;
         private System.Windows.Forms.Panel ExpPanel;
@@ -631,7 +723,6 @@
         private System.Windows.Forms.DataGridView PointsTable;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
-        private System.Windows.Forms.Button SetChartButton;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label PolyCLabel;
@@ -653,6 +744,16 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn yValues;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label PolyBLabel;
+        private System.Windows.Forms.Label lineDeviation;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Button SetChartButton;
+        private System.Windows.Forms.Label polyDeviation;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label expDeviation;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label powDeviation;
+        private System.Windows.Forms.Label label10;
     }
 }
 
